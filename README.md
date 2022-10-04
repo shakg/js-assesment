@@ -30,3 +30,4 @@ This is a simple object orianted coding assesment. You need to follow instructio
     - Page
   - Library object can be Array, Set or Map 
   - You can grant to add book if book exist in the library. (aka book names are unique)
+  - To promt user for input, you can use npm libraries like `prompt-sync`
