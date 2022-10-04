@@ -25,7 +25,6 @@ This is a simple object orianted coding assesment. You need to follow instructio
   - Book object has following properties
     - ID
     - Author
-    - Addition Date (addition date to library)
     - Name
     - Page
   - Library object can be Array, Set or Map 
