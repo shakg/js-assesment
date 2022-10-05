@@ -22,4 +22,4 @@ This is a simple object orianted coding assesment. You need to follow instructio
  # Additional information
   - Library object can be Array, Set or Map 
   - You can deny to add book if book exist in the library. (aka book names are unique)
-  - You can find a boilerplate code to start with in this repo.
+  - You can find a boilerplate code to start with in this repo. [Here](index.js)
