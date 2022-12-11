@@ -5,8 +5,14 @@
  *  - author
  *  - pageCount
  */
-class Book{
- // your code goes here.
+ class Book{
+ 
+    constructor(name, author, pageCount){
+        this.name = name;
+        this.author = author;
+        this.pageCount = pageCount
+    }
+
 }
 
 
@@ -18,8 +24,84 @@ class Book{
  *  - getAllBooks
  *  - getBookWithMostPageNumber
  */
+
 class Library{
-    // your code goes here.
+
+    constructor(){
+        this.library = []
+    }
+
+    addBook(book){
+        
+        let b = new Book(book);
+        this.library.push(b);
+        console.log(b);
+        
+    }
+
+    deleteBook(bookName){
+        
+        this.library.forEach(book => { // compare the bookName with each book and remove if they are the same.
+            if(book.name == bookName){
+                let index = this.library.indexOf(book);
+                if(index >-1){
+                    this.library.splice(index, 1);
+                }
+            }
+        })
+
+        this.library.forEach(book => { //return false if the book is still in the array. If not return true.
+            if(book.name == bookName){
+                return false;
+            }else{
+                return true;
+            }
+        })
+
+
+
+    }
+
+    updateBook(nameBeforeUpdate, updatedBook){
+
+        this.library.forEach(book => { //return false if the book is still in the array. If not return true.
+            if(book.name == nameBeforeUpdate){
+                
+                book = updatedBook; //change previous version with the new one.
+
+            }
+        })
+
+        this.library.forEach(book => { //return true if the updated book is in the array. If not return false.
+            if(book.name == updatedBook.name){
+                return true;
+            }else{
+                return false;
+            }
+        })
+
+    }
+
+    getAllBooks(){// return allBooks array.
+        return this.library; 
+    }
+
+    getBookWithMostPageNumber(){
+
+        let bookWithMostPages = this.library[0];
+
+        this.library.forEach(book => {//compare all books with the bookwithmostpages and replace if it has more pages.
+            
+            if(book.pageCount > bookWithMostPages){
+                book = bookWithMostPages;
+            }
+            
+        })
+
+        return bookWithMostPages;
+
+    }
+
 }
 
 
@@ -40,6 +122,8 @@ const _book = new Book(
 // add constructed book to library
 // takes book object and returns nothing, aka void function.
 lib.addBook(_book);
+//console.log(_book);
+
 
 // update book, takes name of the book, new book object and returns true if update successfull else returns false;
 const _bookUpdated = new Book(
@@ -57,4 +141,3 @@ const _allBooks = lib.getAllBooks();
 
 // getBookWithMostPageNumber, returns the book object with the most pageCount
 const bookWithMostPageNumber = lib.getBookWithMostPageNumber()
-
