@@ -6,7 +6,15 @@
  *  - pageCount
  */
 class Book{
+
+     constructor(name, author, pageCount) {
+        this.name = name;
+        this.author = author;
+        this.pageCount = pageCount;
+    }
  // your code goes here.
+
+
 }
 
 
@@ -19,6 +27,57 @@ class Book{
  *  - getBookWithMostPageNumber
  */
 class Library{
+    
+    books = [];
+
+    // Add book to library
+    addBook(book) {
+        this.books.push(book);
+    }
+
+    // Delete book from library
+    deleteBook(bookname) {
+        this.books = this.books.filter(el => el.name != bookname);
+    }
+
+    // Update given named book
+    updateBook(bookname) {
+        let isFound = false;
+        if(this.books.find(el => el.name == bookname)) {
+            isFound = true;
+        }
+
+        if(isFound) {
+            let b = this.books.find(el => el.name == bookname); 
+            console.log(b.pageCount);
+            b.name = prompt("Enter name of the book: ");
+            b.author = prompt("Enter author of the book: ");
+            b.pageCount = parseInt(prompt("Enter page count of the book: "));
+        }
+
+        return isFound;
+    }
+
+    // Return all books in the library
+    getAllBooks() {
+        return this.books
+    }
+
+    // Get book with most page number method
+    getBookWithMostPageNumber() {
+        let pageNumber = -1;
+        let index = -1;
+        for(let i = 0; i<this.books.length; i++) {
+            if(this.books[i].pageCount > pageNumber) {
+                pageNumber = this.books[i].pageCount;
+                index = i;
+            }
+        }
+
+        return this.books[index];
+    }
+
+
     // your code goes here.
 }
 
